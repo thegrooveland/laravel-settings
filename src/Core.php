@@ -94,7 +94,7 @@ class Core
 
     public static function schema(string $group): array
     {
-        $settings = new Settings();
+        $settings = new Core();
         return $settings->getSchema($group);
     }
 }
