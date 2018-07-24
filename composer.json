@@ -1,0 +1,14 @@
+{
+    "name": "grooveland/settings",
+    "description": "Laravel settings handler",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "venespana",
+            "email": "venespana159@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
