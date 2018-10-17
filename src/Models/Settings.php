@@ -18,6 +18,15 @@ class Settings extends BaseModel
         'model'
     ];
 
+    public static function remove($group, $name, $type = Core::DEFAULT_TYPE)
+    {
+        if ($id = static::exists($name)) {
+            return self::where('id', $id)->delete();
+        }
+
+        return null;
+    }
+
     /**
      * Add a settings value
      *
