@@ -15,12 +15,11 @@ class Core
 
     const DEFAULT_TYPE = 'string';
 
-    public static function groups()
+    public static function groups(array $groups = [])
     {
-        $settings = config('groovie');
         $result = [];
-        foreach ($settings as $setting => $value) {
-            array_push($result, $setting);
+        foreach ($groups as $group => $value) {
+            array_push($result, $groups);
         }
         return $result;
     }
@@ -37,8 +36,8 @@ class Core
     public static function cast($data, $to)
     {
         $from = gettype($data);
-        if (method_exists(Core::class, $to)) {
-            return Core::$to($data, $from);
+        if (method_exists(static::class, $to)) {
+            return static::$to($data, $from);
         }
         return $data;
     }
@@ -46,7 +45,7 @@ class Core
 
     protected function getSchema(string $group): array
     {
-        $configs = config("groovie.$group.settings");
+        $configs = config("cms-settings.$group.settings");
         if (is_array($configs)) {
             return \Jasny\objectify($configs);
         }
